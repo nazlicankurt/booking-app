@@ -1,6 +1,61 @@
 {
-  "appTitle": "flutter_booking_app",
-  "@appTitle": {
-    "description": "The title of the application"
+  "hotelsInLocation": "{count, plural, =0 {No hotels} =1 {1 hotel for {location}} other {{count} hotels for {location}}}",
+  "@hotelsInLocation": {
+    "description": "Number of hotels available in a location",
+    "placeholders": {
+      "count": { "type": "int" },
+      "location": { "type": "String" }
+    }
+  },
+  
+  "days": "{count, plural, =0 {No days} =1 {1 day} other {{count} days}}",
+  "@days": {
+    "description": "Pluralization for the number of days",
+    "placeholders": { "count": { "type": "int" } }
+  },
+  
+  "nights": "{count, plural, =0 {No nights} =1 {1 night} other {{count} nights}}",
+  "@nights": {
+    "description": "Pluralization for the number of nights",
+    "placeholders": { "count": { "type": "int" } }
+  },
+
+  "price": "from {price} / {perPersonPrice} p.P.",
+  "@price": {
+    "description": "Price for the hotel and per person price",
+    "placeholders": {
+      "price": { "type": "double" },
+      "perPersonPrice": { "type": "double" }
+    }
+  },
+  
+  "guests": "{adults} Adults, {children} Children, incl. Flight",
+  "@guests": {
+    "description": "Number of adults and children with flight inclusion",
+    "placeholders": {
+      "adults": { "type": "int" },
+      "children": { "type": "int" }
+    }
+  },
+  
+  "offers": "View Offers",
+  "@offers": {
+    "description": "View offers for the hotel"
+  },
+  
+  "score": "{reviews, plural, =0 {No reviews} =1 {1 review} other {{reviews} reviews}}",
+  "@score": {
+    "description": "Number of reviews",
+    "placeholders": { "reviews": { "type": "int" } }
+  },
+  
+  "viewHotel": "View Hotel",
+  "@viewHotel": {
+    "description": "Button to view the hotel"
+  },
+  
+  "favorites": "Favorites",
+  "@favorites": {
+    "description": "Button to view the user's favorite hotels"
   }
 }
