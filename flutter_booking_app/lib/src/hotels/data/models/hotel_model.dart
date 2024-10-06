@@ -39,15 +39,19 @@ class HotelModel extends HotelEntity {
 
   Map<String, dynamic> toJson() => _$HotelModelToJson(this);
 
+  @override
   @JsonKey(name: 'best-offer')
   final BestOfferModel bestOffer;
 
+  @override
   @JsonKey(name: 'rating-info')
   final RatingInfoModel ratingInfo;
 
+  @override
   @JsonKey(name: 'analytics')
   final HotelAnalyticsModel analytics;
 
+  @override
   @JsonKey(name: 'images')
   final List<ImageModel> images;
 

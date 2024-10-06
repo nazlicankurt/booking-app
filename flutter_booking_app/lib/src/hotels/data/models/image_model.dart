@@ -6,12 +6,9 @@ part 'image_model.g.dart';
 @JsonSerializable()
 class ImageModel extends ImageEntity {
   const ImageModel({
-    required String large,
-    required String small,
-  }) : super(
-          large: large,
-          small: small,
-        );
+    required super.large,
+    required super.small,
+  });
 
   factory ImageModel.fromJson(Map<String, dynamic> json) =>
       _$ImageModelFromJson(json);

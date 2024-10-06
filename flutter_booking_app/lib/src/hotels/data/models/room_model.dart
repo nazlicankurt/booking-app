@@ -6,14 +6,10 @@ part 'room_model.g.dart';
 @JsonSerializable()
 class RoomModel extends RoomEntity {
   const RoomModel({
-    required String roomType,
-    required int adultCount,
-    required int childCount,
-  }) : super(
-          roomType: roomType,
-          adultCount: adultCount,
-          childCount: childCount,
-        );
+    required super.roomType,
+    required super.adultCount,
+    required super.childCount,
+  });
 
   factory RoomModel.fromJson(Map<String, dynamic> json) => _$RoomModelFromJson(json);
 
