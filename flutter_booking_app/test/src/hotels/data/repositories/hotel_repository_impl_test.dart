@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_booking_app/src/hotels/data/datasources/hotel_local_data_source.dart';
 import 'package:flutter_booking_app/src/hotels/data/datasources/hotel_remote_data_source.dart';
 import 'package:flutter_booking_app/src/hotels/data/repositories/hotel_repository_impl.dart';
 import 'package:flutter_booking_app/src/hotels/domain/entities/hotel_entity.dart';
@@ -14,6 +15,7 @@ class MockHotelRemoteDataSource extends Mock implements HotelRemoteDataSource {}
 
 void main() {
   late HotelRemoteDataSource remoteDataSource;
+  late HotelLocalDataSource localeDataSource;
   late HotelRepositoryImpl repoImpl;
 
   setUpAll(() {
@@ -27,7 +29,8 @@ void main() {
 
   setUp(() {
     remoteDataSource = MockHotelRemoteDataSource();
-    repoImpl = HotelRepositoryImpl(remoteDataSource);
+    localeDataSource = MockHotelLocalDataSource() as HotelLocalDataSource;
+    repoImpl = HotelRepositoryImpl(remoteDataSource, localeDataSource);
   });
 
   group('getHotels', () {
@@ -148,4 +151,7 @@ void main() {
       verifyNoMoreInteractions(remoteDataSource);
     });
   });
+}
+
+class MockHotelLocalDataSource {
 }

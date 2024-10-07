@@ -59,5 +59,9 @@
   "favorites": "Favoriler",
   "@favorites": {
     "description": "Kullanıcının favori otelleri butonu"
+  },
+   "priceAb": "başlayan",
+  "@priceAb": {
+    "description": "Prefix for price (e.g., başlayan 100 €)"
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter_booking_app/src/hotels/domain/entities/image_entity.dart
 import 'package:flutter_booking_app/src/hotels/domain/entities/rating_info_entity.dart';
 import 'package:flutter_booking_app/src/hotels/domain/entities/best_offer_entity.dart';
 import 'package:flutter_booking_app/src/hotels/domain/entities/hotel_analytics.dart';
-
 abstract class HotelRepository {
   const HotelRepository();
 
@@ -20,5 +19,7 @@ abstract class HotelRepository {
     required HotelAnalyticsEntity analytics, 
   });
 
-
+  ResultFuture<void> saveFavoriteHotel(HotelEntity hotel);
+  ResultFuture<void> removeFavoriteHotel(String hotelId);
+  ResultFuture<List<HotelEntity>> getFavoriteHotels();
 }

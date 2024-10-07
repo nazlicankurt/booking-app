@@ -7,7 +7,6 @@ import 'package:flutter_booking_app/src/hotels/domain/entities/rating_info_entit
 import 'package:flutter_booking_app/src/hotels/domain/entities/best_offer_entity.dart';
 import 'package:flutter_booking_app/src/hotels/domain/entities/hotel_analytics.dart';
 import 'package:flutter_booking_app/src/hotels/domain/repositories/hotel_repository.dart';
-
 class GetHotelsUseCase extends UsecaseWithParams<List<HotelEntity>, GetHotelsParams> {
   final HotelRepository repository;
 
@@ -23,8 +22,8 @@ class GetHotelsUseCase extends UsecaseWithParams<List<HotelEntity>, GetHotelsPar
       nights: params.nights,
       score: params.score,
       images: params.images,
-      bestOffer: params.bestOffer, 
-      analytics: params.analytics, 
+      bestOffer: params.bestOffer,
+      analytics: params.analytics,
     );
   }
 }

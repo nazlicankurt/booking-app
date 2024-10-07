@@ -57,5 +57,9 @@
   "favorites": "Favorites",
   "@favorites": {
     "description": "Button to view the user's favorite hotels"
+  },
+   "priceAb": "from",
+  "@priceAb": {
+    "description": "Prefix for price (e.g., from 100 €)"
   }
 }

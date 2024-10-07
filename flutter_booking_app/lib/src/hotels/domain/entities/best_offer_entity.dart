@@ -7,9 +7,11 @@ class BestOffer extends Equatable {
   final int includedTravelDiscount;
   final bool flightIncluded;
   final List<String> availableSpecialGroups;
-  final RoomEntity room; 
+  final RoomEntity room;
   final DateTime departureDate;
   final DateTime returnDate;
+  final int days; 
+  final int nights;  
 
   const BestOffer({
     required this.originalTravelPrice,
@@ -20,17 +22,21 @@ class BestOffer extends Equatable {
     required this.room,
     required this.departureDate,
     required this.returnDate,
+    required this.days,  
+    required this.nights,
   });
 
-BestOffer.empty()
-  : originalTravelPrice = 0,
-    simplePricePerPerson = 0,
-    includedTravelDiscount = 0,
-    flightIncluded = false,
-    availableSpecialGroups = const [],
-    room = const RoomEntity.empty(),
-    departureDate = DateTime(1996), 
-    returnDate = DateTime(1996);
+  BestOffer.empty()
+      : originalTravelPrice = 0,
+        simplePricePerPerson = 0,
+        includedTravelDiscount = 0,
+        flightIncluded = false,
+        availableSpecialGroups = const [],
+        room = const RoomEntity.empty(),
+        departureDate = DateTime(1996),
+        returnDate = DateTime(1996),
+        days = 0,  
+        nights = 0;
 
   @override
   List<Object?> get props => [
@@ -42,5 +48,7 @@ BestOffer.empty()
         room,
         departureDate,
         returnDate,
+        days,
+        nights,
       ];
 }

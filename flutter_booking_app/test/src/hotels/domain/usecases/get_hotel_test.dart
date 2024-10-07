@@ -47,7 +47,7 @@ void main() {
           availableSpecialGroups: const [],
           room: const RoomEntity.empty(),
           departureDate:  DateTime.now(),
-          returnDate: DateTime.now(),
+          returnDate: DateTime.now(), days: 3, nights: 4,
         ),
         analytics: const HotelAnalyticsEntity(
           currency: 'USD',
@@ -83,7 +83,7 @@ void main() {
             availableSpecialGroups: const [],
             room: RoomEntity.empty(),
             departureDate:  DateTime.now(),
-            returnDate: DateTime.now(),
+            returnDate: DateTime.now(), days: 2, nights: 3,
           ),
           categoryType: '', analytics: HotelAnalyticsEntity.empty(),
         )

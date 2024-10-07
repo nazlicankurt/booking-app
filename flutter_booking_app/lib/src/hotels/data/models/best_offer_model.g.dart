@@ -18,6 +18,8 @@ BestOfferModel _$BestOfferModelFromJson(Map<String, dynamic> json) =>
       room: RoomModel.fromJson(json['room'] as Map<String, dynamic>),
       departureDate: DateTime.parse(json['departureDate'] as String),
       returnDate: DateTime.parse(json['returnDate'] as String),
+      days: (json['days'] as num?)?.toInt(),
+      nights: (json['nights'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$BestOfferModelToJson(BestOfferModel instance) =>
@@ -29,5 +31,7 @@ Map<String, dynamic> _$BestOfferModelToJson(BestOfferModel instance) =>
       'availableSpecialGroups': instance.availableSpecialGroups,
       'departureDate': instance.departureDate.toIso8601String(),
       'returnDate': instance.returnDate.toIso8601String(),
+      'days': instance.days,
+      'nights': instance.nights,
       'room': instance.room,
     };
