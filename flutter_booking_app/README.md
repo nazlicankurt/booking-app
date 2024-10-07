@@ -11,6 +11,24 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+
+## How to Run the App
+
+To run the app locally, follow these steps:
+
+**Clone the repository:**
+
+``git clone https://github.com/nazlicankurt/booking-app.git``
+
+**Navigate to the project directory:**
+``cd booking-app/flutter_booking_app``
+
+
+``flutter pub get``
+
+``flutter run``
+
+
 ## Architecture
 
 The application follows a clean architecture pattern, structured into distinct layers to promote separation of concerns and maintainability:

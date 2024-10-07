@@ -18,15 +18,16 @@ To run the app locally, follow these steps:
 
 **Clone the repository:**
 
-git clone https://github.com/nazlicankurt/booking-app.git
+``git clone https://github.com/nazlicankurt/booking-app.git``
 
 **Navigate to the project directory:**
+``cd booking-app/flutter_booking_app``
 
-cd booking-app/flutter_booking_app
 
-flutter pub get
+``flutter pub get``
 
-flutter run
+``flutter run``
+
 
 ## Architecture
 
