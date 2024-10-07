@@ -45,3 +45,8 @@ The project supports localization through ARB files located in the `lib/src/loca
 
 - To add support for additional languages, follow the guidelines in the [Internationalizing Flutter apps](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) tutorial.
 - Localized messages are automatically generated based on the contents of the ARB files, making it simple to manage translations.
+
+
+## Video Tutorial
+
+You can watch a video tutorial about the project [here](https://vimeo.com/1017045772?share=copy).
