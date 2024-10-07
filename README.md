@@ -29,7 +29,7 @@ To run the app locally, follow these steps:
 ``flutter run``
 
 ![Hotel Image](/flutter_booking_app/assets/images/hotel.png)
-![Hotel Image](/assets/images/favori.png)
+![Hotel Image](/flutter_booking_app/assets/images/favori.png)
 ![Hotel Image](/flutter_booking_app/assets/images/home.png)
 
 
