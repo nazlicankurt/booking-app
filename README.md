@@ -28,6 +28,10 @@ To run the app locally, follow these steps:
 
 ``flutter run``
 
+![Hotel Image](assets/images/hotel.png)
+![Hotel Image](assets/images/favori.png)
+![Hotel Image](assets/images/home.png)
+
 
 ## Architecture
 
