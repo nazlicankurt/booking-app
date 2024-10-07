@@ -16,10 +16,7 @@ class AppRouter extends RootStackRouter {
             AutoRoute(
               page: ProfileRoute.page,
               path: 'profile',
-              children: [
-                AutoRoute(page: ProfileDetailRoute.page),
-                
-              ],
+         
             ),
             AutoRoute(page: FavoritesRoute.page, path: 'favorites'),
           ],

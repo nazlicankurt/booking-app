@@ -58,6 +58,7 @@ class MyApp extends StatelessWidget {
             ),
             darkTheme: ThemeData.dark(),
             themeMode: settingsController.themeMode,
+            
           );
         },
       ),
