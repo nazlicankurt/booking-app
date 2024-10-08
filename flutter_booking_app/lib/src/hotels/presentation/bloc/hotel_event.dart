@@ -13,6 +13,7 @@ abstract class HotelEvent extends Equatable {
 
 class GetHotelsEvent extends HotelEvent {
   const GetHotelsEvent({
+    required this.hotelId,
     required this.name,
     required this.destination,
     required this.adults,
@@ -23,7 +24,7 @@ class GetHotelsEvent extends HotelEvent {
     required this.bestOffer,
     required this.analytics,
   });
-
+  final String hotelId;
   final String name;
   final String destination;
   final int adults;

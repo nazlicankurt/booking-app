@@ -8,8 +8,6 @@ import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_bl
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_event.dart';
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_state.dart';
 import 'package:flutter_booking_app/src/hotels/presentation/widgets/hotel_card_widget.dart';
-import 'package:lottie/lottie.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 @RoutePage()
 class FavoritesView extends StatelessWidget {

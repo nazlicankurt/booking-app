@@ -29,6 +29,7 @@ class _HotelsViewState extends State<HotelsView> {
     super.initState();
 
     BlocProvider.of<HotelBloc>(context).add(GetHotelsEvent(
+      hotelId: "",
       name: "",
       destination: "",
       adults: 2,
@@ -64,12 +65,10 @@ class _HotelsViewState extends State<HotelsView> {
                   final favoriteHotels = favoritesState is FavoritesLoaded
                       ? favoritesState.favoriteHotels
                       : [];
-
                   return ListView.builder(
                     itemCount: hotelState.hotels.length,
                     itemBuilder: (context, index) {
                       final hotel = hotelState.hotels[index];
-
                       final isFavorite = favoriteHotels
                           .any((favHotel) => favHotel.hotelId == hotel.hotelId);
 

@@ -36,6 +36,7 @@ void main() {
 
       // Act
       final result = await remoteDataSource.getHotels(
+        hotelId: 'hotelId',
         name: 'name',
         destination: 'destination',
         adults: 1,
@@ -61,6 +62,7 @@ void main() {
       // Act & Assert
       expect(
         () => remoteDataSource.getHotels(
+          hotelId: 'hotelId',
           name: 'name',
           destination: 'destination',
           adults: 1,

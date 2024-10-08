@@ -13,6 +13,7 @@ abstract class HotelRemoteDataSource {
   const HotelRemoteDataSource();
 
   Future<List<HotelModel>> getHotels({
+    required String hotelId,
     required String name,
     required String destination,
     required int adults,
@@ -33,6 +34,7 @@ class HotelRemoteDataSourceImpl implements HotelRemoteDataSource {
 
   @override
   Future<List<HotelModel>> getHotels({
+    required String hotelId,
     required String name,
     required String destination,
     required int adults,
@@ -47,9 +49,6 @@ class HotelRemoteDataSourceImpl implements HotelRemoteDataSource {
     
     if (response.statusCode == 200) {
       final Map<String, dynamic> jsonData = jsonDecode(response.body);
-
-
-
 
       if (jsonData.containsKey('hotels')) {
 

@@ -14,7 +14,7 @@ class HotelPriceInfo extends StatelessWidget {
   final ColorScheme colorScheme;   
 
   const HotelPriceInfo({
-    Key? key,
+    super.key,
     required this.day,
     required this.roomType,
     required this.meal,
@@ -25,7 +25,7 @@ class HotelPriceInfo extends StatelessWidget {
     required this.textTheme,       
     required this.localizations,   
     required this.colorScheme,     
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

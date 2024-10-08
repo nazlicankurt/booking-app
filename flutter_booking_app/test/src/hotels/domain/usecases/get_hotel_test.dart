@@ -27,6 +27,7 @@ void main() {
     () async {
       // Arrange
       var testParams = GetHotelsParams(
+        hotelId: '123',
         name: 'Test Hotel',
         destination: 'Test Destination',
         adults: 2,
@@ -90,6 +91,7 @@ void main() {
       ];
 
       when(() => repository.getHotels(
+            hotelId: testParams.hotelId,
             name: testParams.name,
             destination: testParams.destination,
             adults: testParams.adults,
@@ -107,6 +109,7 @@ void main() {
       // Assert
       expect(result, equals(Right(testResponse)));
       verify(() => repository.getHotels(
+            hotelId: testParams.hotelId,  
             name: testParams.name,
             destination: testParams.destination,
             adults: testParams.adults,
@@ -126,6 +129,7 @@ void main() {
     () async {
       // Arrange
       var testParams = GetHotelsParams(
+        hotelId: '123',
         name: 'Test Hotel',
         destination: 'Test Destination',
         adults: 2,
@@ -143,6 +147,7 @@ void main() {
       );
 
       when(() => repository.getHotels(
+                hotelId: testParams.hotelId,
                 name: testParams.name,
                 destination: testParams.destination,
                 adults: testParams.adults,
@@ -163,6 +168,7 @@ void main() {
       expect(result,
           equals(const Left(ApiFailure(message: 'Error', statusCode: 500))));
       verify(() => repository.getHotels(
+            hotelId: testParams.hotelId,
             name: testParams.name,
             destination: testParams.destination,
             adults: testParams.adults,

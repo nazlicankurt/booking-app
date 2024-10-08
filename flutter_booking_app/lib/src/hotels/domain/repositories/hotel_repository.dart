@@ -8,6 +8,7 @@ abstract class HotelRepository {
   const HotelRepository();
 
   ResultFuture<List<HotelEntity>> getHotels({
+    required String hotelId,
     required String name,
     required String destination,
     required int adults,

@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'settings_controller.dart';
 
+@RoutePage()
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});
 

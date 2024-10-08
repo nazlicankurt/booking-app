@@ -24,7 +24,7 @@ class HotelCardWidget extends StatelessWidget {
 
   // Named constructor for Hotels view (full details)
   const HotelCardWidget.hotel({
-    Key? key,
+    super.key,
     required this.hotelId,
     required this.imageUrl,
     required this.hotelName,
@@ -40,11 +40,11 @@ class HotelCardWidget extends StatelessWidget {
     required this.isFavorite,
     required this.onFavoriteToggle,
     required this.buttonText,
-  }) : super(key: key);
+  });
 
   // Named constructor for Favorites view (less details)
   const HotelCardWidget.favorite({
-    Key? key,
+    super.key,
     required this.hotelId,
     required this.imageUrl,
     required this.hotelName,
@@ -59,8 +59,7 @@ class HotelCardWidget extends StatelessWidget {
         adults = null,
         children = null,
         pricePerPerson = null,
-        totalPrice = null,
-        super(key: key);
+        totalPrice = null;
 
   @override
   Widget build(BuildContext context) {

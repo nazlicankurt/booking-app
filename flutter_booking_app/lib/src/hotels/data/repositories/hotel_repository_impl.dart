@@ -19,6 +19,7 @@ class HotelRepositoryImpl implements HotelRepository {
 
   @override
   ResultFuture<List<HotelEntity>> getHotels({
+    required String hotelId,
     required String name,
     required String destination,
     required int adults,
@@ -31,6 +32,7 @@ class HotelRepositoryImpl implements HotelRepository {
   }) async {
     try {
       final result = await _remoteDataSource.getHotels(
+        hotelId: hotelId,
         name: name,
         destination: destination,
         adults: adults,
@@ -71,6 +73,7 @@ class HotelRepositoryImpl implements HotelRepository {
     try {
       final favoriteHotelIds = await _localDataSource.getFavoriteHotels();
       final hotels = await _remoteDataSource.getHotels(
+        hotelId: '',
         name: '', 
         destination: '', 
         adults: 0, 

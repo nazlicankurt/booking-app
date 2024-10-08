@@ -15,6 +15,7 @@ class GetHotelsUseCase extends UsecaseWithParams<List<HotelEntity>, GetHotelsPar
   @override
   ResultFuture<List<HotelEntity>> call(GetHotelsParams params) {
     return repository.getHotels(
+      hotelId: params.hotelId, 
       name: params.name,
       destination: params.destination,
       adults: params.adults,
@@ -30,6 +31,7 @@ class GetHotelsUseCase extends UsecaseWithParams<List<HotelEntity>, GetHotelsPar
 
 class GetHotelsParams extends Equatable {
   const GetHotelsParams({
+    required this.hotelId,
     required this.name,
     required this.destination,
     required this.adults,
@@ -42,7 +44,9 @@ class GetHotelsParams extends Equatable {
   });
 
    GetHotelsParams.empty()
-      : name = '_empty.name',
+      : 
+        hotelId = '_empty.hotelId',
+        name = '_empty.name',
         destination = '_empty.destination',
         adults = 0,
         children = 0,
@@ -52,6 +56,7 @@ class GetHotelsParams extends Equatable {
         bestOffer =  BestOffer.empty(),
         analytics =  const HotelAnalyticsEntity.empty(); 
 
+  final String hotelId;
   final String name;
   final String destination;
   final int adults;
@@ -64,6 +69,7 @@ class GetHotelsParams extends Equatable {
 
   @override
   List<Object?> get props => [
+    hotelId,
     name,
     destination,
     adults,

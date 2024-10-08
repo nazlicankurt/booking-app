@@ -6,10 +6,10 @@ class CustomEmptyState extends StatelessWidget {
   final String lottieAssetPath;
 
   const CustomEmptyState({
-    Key? key,
+    super.key,
     required this.message,
     required this.lottieAssetPath,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

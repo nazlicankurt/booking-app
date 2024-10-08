@@ -6,12 +6,12 @@ class HotelInfo extends StatelessWidget {
   final ColorScheme colorScheme;
 
   const HotelInfo({
-    Key? key,
+    super.key,
     required this.hotelName,
     required this.hotelLocation,
     required this.textTheme,
     required this.colorScheme,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,6 @@ HotelModel _$HotelModelFromJson(Map<String, dynamic> json) => HotelModel(
       category: (json['category'] as num?)?.toInt(),
       categoryType: json['categoryType'] as String?,
       destination: json['destination'] as String?,
-      hotelId: json['hotelId'] as String?,
       latitude: (json['latitude'] as num?)?.toDouble(),
       longitude: (json['longitude'] as num?)?.toDouble(),
       name: json['name'] as String?,
@@ -23,6 +22,7 @@ HotelModel _$HotelModelFromJson(Map<String, dynamic> json) => HotelModel(
           RatingInfoModel.fromJson(json['rating-info'] as Map<String, dynamic>),
       analytics: HotelAnalyticsModel.fromJson(
           json['analytics'] as Map<String, dynamic>),
+      hotelId: json['hotel-id'] as String,
     );
 
 Map<String, dynamic> _$HotelModelToJson(HotelModel instance) =>
@@ -30,10 +30,10 @@ Map<String, dynamic> _$HotelModelToJson(HotelModel instance) =>
       'category': instance.category,
       'categoryType': instance.categoryType,
       'destination': instance.destination,
-      'hotelId': instance.hotelId,
       'latitude': instance.latitude,
       'longitude': instance.longitude,
       'name': instance.name,
+      'hotel-id': instance.hotelId,
       'best-offer': instance.bestOffer,
       'rating-info': instance.ratingInfo,
       'analytics': instance.analytics,

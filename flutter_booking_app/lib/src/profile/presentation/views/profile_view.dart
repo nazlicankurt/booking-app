@@ -72,12 +72,12 @@ class AchievementCard extends StatelessWidget {
   final Color color;
 
   const AchievementCard({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.description,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

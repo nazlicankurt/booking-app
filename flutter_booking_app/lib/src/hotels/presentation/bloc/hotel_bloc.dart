@@ -19,8 +19,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   Future<void> _getHotelsHandler(
       GetHotelsEvent event, Emitter<HotelState> emit) async {
     emit(HotelLoading());
-
     final result = await _getHotels(GetHotelsParams(
+      hotelId: event.hotelId,
       name: event.name,
       destination: event.destination,
       adults: event.adults,

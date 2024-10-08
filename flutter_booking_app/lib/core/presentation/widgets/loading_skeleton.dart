@@ -6,10 +6,10 @@ class CustomLoadingSkeleton extends StatelessWidget {
   final EdgeInsetsGeometry padding;
 
   const CustomLoadingSkeleton({
-    Key? key,
+    super.key,
     this.itemCount = 6,
     this.padding = const EdgeInsets.all(8.0),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

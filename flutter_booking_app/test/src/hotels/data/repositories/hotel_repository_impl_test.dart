@@ -38,6 +38,7 @@ void main() {
         () async {
       // Arrange
       when(() => remoteDataSource.getHotels(
+            hotelId: any(named: 'hotelId'),
             name: any(named: 'name'),
             destination: any(named: 'destination'),
             adults: any(named: 'adults'),
@@ -51,6 +52,7 @@ void main() {
 
       // Act
       final result = await repoImpl.getHotels(
+        hotelId: 'hotelId',
         name: 'name',
         destination: 'destination',
         adults: 1,
@@ -70,6 +72,7 @@ void main() {
       // Assert
       expect(result, isA<Right<dynamic, List<HotelEntity>>>());
       verify(() => remoteDataSource.getHotels(
+            hotelId: 'hotelId',
             name: 'name',
             destination: 'destination',
             adults: 1,
@@ -93,6 +96,7 @@ void main() {
         () async {
       // Arrange
       when(() => remoteDataSource.getHotels(
+                hotelId: any(named: 'hotelId'),
                 name: any(named: 'name'),
                 destination: any(named: 'destination'),
                 adults: any(named: 'adults'),
@@ -108,6 +112,7 @@ void main() {
 
       // Act
       final result = await repoImpl.getHotels(
+        hotelId: 'hotelId',
         name: 'name',
         destination: 'destination',
         adults: 1,
@@ -133,6 +138,7 @@ void main() {
           )))));
 
       verify(() => remoteDataSource.getHotels(
+            hotelId: 'hotelId',
             name: 'name',
             destination: 'destination',
             adults: 1,

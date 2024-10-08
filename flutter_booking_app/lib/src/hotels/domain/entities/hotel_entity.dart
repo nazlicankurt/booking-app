@@ -5,10 +5,10 @@ import 'package:flutter_booking_app/src/hotels/domain/entities/image_entity.dart
 import 'package:flutter_booking_app/src/hotels/domain/entities/rating_info_entity.dart';
 
 class HotelEntity extends Equatable {
+  final String hotelId;
   final int category;
   final String categoryType;
   final String destination;
-  final String hotelId;
   final double latitude;
   final double longitude;
   final String name;
@@ -18,10 +18,11 @@ class HotelEntity extends Equatable {
   final HotelAnalyticsEntity analytics;
 
   const HotelEntity(
-      {required this.category,
+      {
+      required this.hotelId,
+      required this.category,
       required this.categoryType,
       required this.destination,
-      required this.hotelId,
       required this.latitude,
       required this.longitude,
       required this.name,

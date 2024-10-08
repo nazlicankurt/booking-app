@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_booking_app/src/hotels/data/models/hotel_analytics_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter_booking_app/src/hotels/data/models/best_offer_model.dart';
@@ -13,7 +15,6 @@ class HotelModel extends HotelEntity {
     required int? category,
     required String? categoryType,
     required String? destination,
-    required String? hotelId,
     required double? latitude,
     required double? longitude,
     required String? name,
@@ -21,6 +22,7 @@ class HotelModel extends HotelEntity {
     required this.images,
     required this.ratingInfo,
     required this.analytics,
+    required this.hotelId,
   }) : super(
           category: category ?? 0,
           categoryType: categoryType ?? '',
@@ -35,9 +37,15 @@ class HotelModel extends HotelEntity {
           analytics: analytics,
         );
 
-  factory HotelModel.fromJson(Map<String, dynamic> json) => _$HotelModelFromJson(json);
+  factory HotelModel.fromJson(Map<String, dynamic> json) {
+    return _$HotelModelFromJson(json);
+  }
 
   Map<String, dynamic> toJson() => _$HotelModelToJson(this);
+
+  @override
+  @JsonKey(name: 'hotel-id')
+  final String hotelId;
 
   @override
   @JsonKey(name: 'best-offer')
@@ -55,6 +63,7 @@ class HotelModel extends HotelEntity {
   @JsonKey(name: 'images')
   final List<ImageModel> images;
 
+  // Provide an empty factory method for easy instantiation
   factory HotelModel.empty() {
     return HotelModel(
       category: 0,
