@@ -31,25 +31,29 @@ class BestOfferModel extends BestOffer {
           nights: nights ?? 0,
         );
 
-  factory BestOfferModel.fromJson(Map<String, dynamic> json) {
-    return BestOfferModel(
-      originalTravelPrice: json['original-travel-price'] as int? ?? 0,
-      simplePricePerPerson: json['simple-price-per-person'] as int? ?? 0,
-      includedTravelDiscount: json['included-travel-discount'] as int? ?? 0,
-      flightIncluded: json['flight-included'] as bool? ?? false,
-      availableSpecialGroups: (json['available-special-groups'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
-      room: RoomModel.fromJson(json['rooms']['overall'] as Map<String, dynamic>),
-      departureDate: DateTime.tryParse(json['travel-date']?['departure-date'] as String? ?? '') ??
-          DateTime.now(),
-      returnDate: DateTime.tryParse(json['travel-date']?['return-date'] as String? ?? '') ??
-          DateTime.now(),
-      days: json['travel-date']?['days'] as int? ?? 0,
-      nights: json['travel-date']?['nights'] as int? ?? 0,
-    );
-  }
+factory BestOfferModel.fromJson(Map<String, dynamic> json) {
+  return BestOfferModel(
+    originalTravelPrice: json['original-travel-price'] as int? ?? 0,
+    simplePricePerPerson: json['simple-price-per-person'] as int? ?? 0,
+    includedTravelDiscount: json['included-travel-discount'] as int? ?? 0,
+    flightIncluded: json['flight-included'] as bool? ?? false,
+    availableSpecialGroups: (json['available-special-groups'] as List<dynamic>?)
+            ?.map((e) => e as String)
+            .toList() ??
+        [],
+    
+    room: (json['rooms'] != null && json['rooms']['overall'] != null) 
+        ? RoomModel.fromJson(json['rooms']['overall'] as Map<String, dynamic>)
+        : RoomModel.empty(),
+    
+    departureDate: DateTime.tryParse(json['travel-date']?['departure-date'] as String? ?? '') ??
+        DateTime.now(),
+    returnDate: DateTime.tryParse(json['travel-date']?['return-date'] as String? ?? '') ??
+        DateTime.now(),
+    days: json['travel-date']?['days'] as int? ?? 0,
+    nights: json['travel-date']?['nights'] as int? ?? 0,
+  );
+}
 
   Map<String, dynamic> toJson() => _$BestOfferModelToJson(this);
 

@@ -27,39 +27,16 @@ void main() {
     () async {
       // Arrange
       var testParams = GetHotelsParams(
-        hotelId: '123',
-        name: 'Test Hotel',
-        destination: 'Test Destination',
-        adults: 2,
-        children: 0,
-        nights: 3,
-        score: const RatingInfo(
-          recommendationRate: 4.5,
-          reviewsCount: 200,
-          score: 4.8,
-          scoreDescription: 'Excellent',
-        ),
-        images: const [],
-        bestOffer: BestOffer(
-          originalTravelPrice: 500,
-          simplePricePerPerson: 250,
-          includedTravelDiscount: 0,
-          flightIncluded: false,
-          availableSpecialGroups: const [],
-          room: const RoomEntity.empty(),
-          departureDate:  DateTime.now(),
-          returnDate: DateTime.now(), days: 3, nights: 4,
-        ),
-        analytics: const HotelAnalyticsEntity(
-          currency: 'USD',
-          itemCategory: 'Luxury',
-          itemCategory2: 'Hotels',
-          itemId: '123',
-          itemName: 'Test Hotel',
-          itemRooms: 1,
-          price: 500,
-        ),
-      );
+          hotelId: '123',
+          name: 'Test Hotel',
+          destination: 'Test Destination',
+          adults: 2,
+          children: 0,
+          nights: 3,
+          score: RatingInfo.empty(),
+          images: const [],
+          bestOffer: BestOffer.empty(),
+          analytics: HotelAnalyticsEntity.empty());
 
       final testResponse = [
         HotelEntity(
@@ -69,24 +46,11 @@ void main() {
           latitude: 48.8566,
           longitude: 2.3522,
           images: const [ImageEntity(large: 'large_url', small: 'small_url')],
-          ratingInfo: const RatingInfo(
-            recommendationRate: 4.5,
-            reviewsCount: 1000,
-            score: 4.8,
-            scoreDescription: 'Excellent',
-          ),
+          ratingInfo: RatingInfo.empty(),
           category: 3,
-          bestOffer: BestOffer(
-            originalTravelPrice: 500,
-            simplePricePerPerson: 250,
-            includedTravelDiscount: 0,
-            flightIncluded: false,
-            availableSpecialGroups: const [],
-            room: RoomEntity.empty(),
-            departureDate:  DateTime.now(),
-            returnDate: DateTime.now(), days: 2, nights: 3,
-          ),
-          categoryType: '', analytics: HotelAnalyticsEntity.empty(),
+          bestOffer: BestOffer.empty(),
+          categoryType: '',
+          analytics: HotelAnalyticsEntity.empty(),
         )
       ];
 
@@ -109,7 +73,7 @@ void main() {
       // Assert
       expect(result, equals(Right(testResponse)));
       verify(() => repository.getHotels(
-            hotelId: testParams.hotelId,  
+            hotelId: testParams.hotelId,
             name: testParams.name,
             destination: testParams.destination,
             adults: testParams.adults,

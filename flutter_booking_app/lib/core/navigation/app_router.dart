@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_booking_app/core/navigation/app_router.gr.dart';
+
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 class AppRouter extends RootStackRouter {
   AppRouter();

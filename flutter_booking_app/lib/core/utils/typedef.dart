@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_booking_app/core/errors/failure.dart';
 
-import '../errors/failure.dart';
 
 typedef ResultFuture<T> = Future<Either<Failure, T>>;
 

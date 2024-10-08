@@ -32,9 +32,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
       bestOffer: event.bestOffer,
     ));
 
-
-    
-
     result.fold(
       (failure) {
         final errorMessage = _mapFailureToMessage(failure);

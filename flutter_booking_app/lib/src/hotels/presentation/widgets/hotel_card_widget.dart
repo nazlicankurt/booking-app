@@ -10,19 +10,18 @@ class HotelCardWidget extends StatelessWidget {
   final String imageUrl;
   final String hotelName;
   final String hotelLocation;
-  final int? day; // Optional for Favorites
-  final int? night; // Optional for Favorites
-  final String? roomType; // Optional for Favorites
-  final String? meal; // Optional for Favorites
-  final int? adults; // Optional for Favorites
-  final int? children; // Optional for Favorites
-  final double? pricePerPerson; // Optional for Favorites
-  final double? totalPrice; // Optional for Favorites
+  final int? day;
+  final int? night;
+  final String? roomType;
+  final String? meal; 
+  final int? adults; 
+  final int? children; 
+  final double? pricePerPerson; 
+  final double? totalPrice; 
   final bool isFavorite;
   final VoidCallback onFavoriteToggle;
   final String buttonText;
 
-  // Named constructor for Hotels view (full details)
   const HotelCardWidget.hotel({
     super.key,
     required this.hotelId,
@@ -42,7 +41,6 @@ class HotelCardWidget extends StatelessWidget {
     required this.buttonText,
   });
 
-  // Named constructor for Favorites view (less details)
   const HotelCardWidget.favorite({
     super.key,
     required this.hotelId,

@@ -28,10 +28,14 @@ void main() {
   group('getHotels', () {
     final tHotels = [HotelModel.empty()];
 
-    test('should return [List<HotelEntity>] when the status code is 200', () async {
-      // Arrange
+   test('should return [List<HotelModel>] when the status code is 200', () async {
       when(() => client.get(any())).thenAnswer(
-        (_) async => http.Response(jsonEncode([tHotels.first.toJson()]), 200),
+        (_) async => http.Response(
+          jsonEncode({
+            'hotels': [tHotels.first.toJson()] 
+          }),
+          200,
+        ),
       );
 
       // Act
@@ -52,6 +56,32 @@ void main() {
       expect(result, equals(tHotels));
       verify(() => client.get(Uri.parse(hotelsEndpoint))).called(1);
     });
+
+    test('should throw an APIException when the status code is not 200', () async {
+      // Arrange
+      when(() => client.get(any())).thenAnswer(
+        (_) async => http.Response('Something went wrong', 404),
+      );
+
+      // Act & Assert
+      expect(
+        () => remoteDataSource.getHotels(
+          hotelId: 'hotelId',
+          name: 'name',
+          destination: 'destination',
+          adults: 1,
+          children: 1,
+          nights: 1,
+          score: RatingInfo.empty(),
+          images: [],
+          bestOffer: BestOffer.empty(),
+          analytics: HotelAnalyticsEntity.empty(),
+        ),
+        throwsA(isA<APIException>()),
+      );
+      verify(() => client.get(Uri.parse(hotelsEndpoint))).called(1);
+    });
+
 
     test('should throw an APIException when the status code is not 200', () async {
       // Arrange

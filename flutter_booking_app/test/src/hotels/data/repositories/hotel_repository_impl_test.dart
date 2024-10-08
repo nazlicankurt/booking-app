@@ -12,6 +12,7 @@ import 'package:flutter_booking_app/core/errors/failure.dart';
 import 'package:flutter_booking_app/core/errors/exceptions.dart';
 
 class MockHotelRemoteDataSource extends Mock implements HotelRemoteDataSource {}
+class MockHotelLocalDataSource extends Mock implements HotelLocalDataSource {}
 
 void main() {
   late HotelRemoteDataSource remoteDataSource;
@@ -19,17 +20,17 @@ void main() {
   late HotelRepositoryImpl repoImpl;
 
   setUpAll(() {
-    registerFallbackValue(RatingInfo(
-      recommendationRate: 0,
-      reviewsCount: 0,
-      score: 0,
-      scoreDescription: '',
-    ));
+
+    
+    registerFallbackValue(BestOffer.empty());
+    registerFallbackValue(HotelAnalyticsEntity.empty());
+    registerFallbackValue(RatingInfo.empty());
+
   });
 
   setUp(() {
     remoteDataSource = MockHotelRemoteDataSource();
-    localeDataSource = MockHotelLocalDataSource() as HotelLocalDataSource;
+    localeDataSource = MockHotelLocalDataSource();
     repoImpl = HotelRepositoryImpl(remoteDataSource, localeDataSource);
   });
 
@@ -157,7 +158,4 @@ void main() {
       verifyNoMoreInteractions(remoteDataSource);
     });
   });
-}
-
-class MockHotelLocalDataSource {
 }

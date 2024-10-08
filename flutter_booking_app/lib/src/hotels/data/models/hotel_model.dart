@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter_booking_app/src/hotels/data/models/hotel_analytics_model.dart';
 import 'package:json_annotation/json_annotation.dart';
