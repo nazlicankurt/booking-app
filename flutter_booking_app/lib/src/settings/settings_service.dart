@@ -6,7 +6,7 @@ class SettingsService {
   Future<void> updateThemeMode(ThemeMode theme) async {
   }
 
-  Future<Locale> locale() async => const Locale('en', ''); 
+  Future<Locale> locale() async => const Locale('de', ''); 
 
   Future<void> updateLocale(Locale locale) async {
   }
