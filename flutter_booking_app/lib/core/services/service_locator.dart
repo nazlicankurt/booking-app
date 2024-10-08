@@ -1,6 +1,7 @@
 import 'package:flutter_booking_app/src/hotels/domain/usecases/get_saved_hotel.dart';
 import 'package:flutter_booking_app/src/hotels/domain/usecases/remove_hotel.dart';
 import 'package:flutter_booking_app/src/hotels/domain/usecases/save_hotel.dart';
+import 'package:flutter_booking_app/src/hotels/presentation/bloc/hotel_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart'; 
@@ -12,7 +13,6 @@ import 'package:flutter_booking_app/src/hotels/data/repositories/hotel_repositor
 import 'package:flutter_booking_app/src/hotels/domain/repositories/hotel_repository.dart';
 
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_bloc.dart';
-import 'package:flutter_booking_app/src/homepage/presentation/bloc/hotel_bloc.dart';
 
 final sl = GetIt.instance;
 

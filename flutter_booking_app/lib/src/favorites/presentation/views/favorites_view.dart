@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_booking_app/core/presentation/widgets/custom_app_bar.dart';
+import 'package:flutter_booking_app/core/presentation/widgets/loading_skeleton.dart';
+import 'package:flutter_booking_app/core/presentation/widgets/not_found_widget.dart';
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_bloc.dart';
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_event.dart';
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_state.dart';
@@ -20,84 +22,34 @@ class FavoritesView extends StatelessWidget {
       body: BlocBuilder<FavoritesBloc, FavoritesState>(
         builder: (context, state) {
           if (state is FavoritesLoading) {
-            return Padding(
-              padding: const EdgeInsets.all(12.0), 
-              child: ListView.builder(
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  return Skeletonizer(
-                    child: HotelCardWidget(
-                      hotelId: '',
-                      hotelName: '',
-                      hotelLocation: '',
-                      imageUrl: '',
-                      day: 0,
-                      night: 0,
-                      roomType: '',
-                      meal: '',
-                      adults: 0,
-                      children: 0,
-                      flightIncluded: '',
-                      pricePerPerson: 0,
-                      totalPrice: 0,
-                      isFavorite: false,
-                      onFavoriteToggle: () {},
-                    ),
-                  );
-                },
-              ),
-            );
+            return const CustomLoadingSkeleton();
           } else if (state is FavoritesLoaded) {
             if (state.favoriteHotels.isEmpty) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Lottie.asset(
-                      'assets/animations/Lottie3.json', 
-                      width: 300,
-                      height: 200,
-                      repeat: true,
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      'No favorites added yet.',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
-                ),
+              return const CustomEmptyState(
+                message: 'No favorites added yet.',
+                lottieAssetPath: 'assets/animations/Lottie3.json',
               );
             }
 
             return Padding(
-              padding: const EdgeInsets.all(8.0), 
+              padding: const EdgeInsets.all(8.0),
               child: ListView.builder(
                 itemCount: state.favoriteHotels.length,
                 itemBuilder: (context, index) {
                   final hotel = state.favoriteHotels[index];
 
-                  return HotelCardWidget(
+                  return HotelCardWidget.favorite(
                     hotelId: hotel.hotelId,
+                    imageUrl:
+                        hotel.images.isNotEmpty ? hotel.images[0].small : '',
                     hotelName: hotel.name,
                     hotelLocation: hotel.destination,
-                    imageUrl:
-                        hotel.images.isNotEmpty ? hotel.images[0].large : '',
-                    day: hotel.bestOffer.days,
-                    night: hotel.bestOffer.nights,
-                    roomType: hotel.bestOffer.room.roomType,
-                    meal: hotel.bestOffer.room.roomType,
-                    adults: hotel.bestOffer.room.adultCount,
-                    children: hotel.bestOffer.room.childCount,
-                    flightIncluded: hotel.bestOffer.flightIncluded
-                        ? 'inkl. Flug'
-                        : 'ohne Flug',
-                    pricePerPerson: hotel.bestOffer.simplePricePerPerson / 100,
-                    totalPrice: hotel.bestOffer.originalTravelPrice / 100,
                     isFavorite: true,
                     onFavoriteToggle: () {
                       BlocProvider.of<FavoritesBloc>(context)
                           .add(RemoveFavorite(hotel.hotelId));
                     },
+                    buttonText: 'Zum Hotel',
                   );
                 },
               ),

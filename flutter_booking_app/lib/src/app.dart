@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_booking_app/core/navigation/app_router.dart';
 import 'package:flutter_booking_app/core/services/service_locator.dart';
 import 'package:flutter_booking_app/src/favorites/presentation/bloc/favorites_bloc.dart';
-import 'package:flutter_booking_app/src/homepage/presentation/bloc/hotel_bloc.dart';
+import 'package:flutter_booking_app/src/hotels/presentation/bloc/hotel_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
